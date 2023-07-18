@@ -15,4 +15,4 @@ server.get('/curso/:index', (req, res) => {
    return res.json(cursos[index])
 })
 
-server.listen(3333);
+server.listen(3333, () => console.log('Servidor OK'));
