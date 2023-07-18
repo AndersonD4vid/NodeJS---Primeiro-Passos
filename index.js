@@ -36,20 +36,34 @@ function checkCurso(req, res, next) {
    return next();
 }
 
+// Middleware de verificação
+function checkIndexCurso(req, res, next) {
+   const curso = cursos[req.params.index];
+
+   if (!curso) {
+      return res.status(400).json({ error: 'Curso não existe!' });
+   }
+
+   req.curso = curso;
+
+   return next();
+}
+
 // Read, buscando todos os cursos
 server.get('/cursos', (req, res) => {
    return res.json(cursos);
 })
 
 // Read, buscando um curso
-server.get('/cursos/:index', (req, res) => {
-   const { index } = req.params;
+server.get('/cursos/:index', checkIndexCurso, (req, res) => {
+   //const { index } = req.params;
 
-   return res.json(cursos[index])
+   return res.json(req.curso);
+   //return res.json(cursos[index])
 })
 
 // Update, atualizando um curso
-server.put('/cursos/:index', checkCurso, (req, res) => {
+server.put('/cursos/:index', checkCurso, checkIndexCurso, (req, res) => {
    const { index } = req.params;
    const { name } = req.body;
 
@@ -59,7 +73,7 @@ server.put('/cursos/:index', checkCurso, (req, res) => {
 })
 
 // Delete, deletando um curso
-server.delete('/cursos/:index', (req, res) => {
+server.delete('/cursos/:index', checkIndexCurso, (req, res) => {
    const { index } = req.params;
 
    cursos.splice(index, 1);

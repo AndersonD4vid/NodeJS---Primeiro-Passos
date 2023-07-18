@@ -5,7 +5,7 @@
 E nos permite usar JavaScript na parte do Backend, e não, ele não é uma linguagem.
 
 ## O que são Middlewares?
-- São todo tipo de função que estar entre o pedido da requisição e entre o pedido da resposta final para o frontend.
+- São todo tipo de função que estar entre o pedido da requisição e entre o pedido da resposta final para o frontend. Também podemos manipular e alterar as variáveis req e res.
 
 
 # Dependências
