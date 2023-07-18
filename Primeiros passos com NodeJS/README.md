@@ -1,4 +1,4 @@
-# Primeiro passos Node.Js
+# Primeiros passos com Node.Js
 
 ## O que é Node.Js?
 - É um software que permite a execução de códigos JavaScript fora de um navegador web. A principal característica do Node.js é sua arquitetura assíncrona e orientada por eventos.
@@ -6,6 +6,10 @@ E nos permite usar JavaScript na parte do Backend, e não, ele não é uma lingu
 
 ## O que são Middlewares?
 - São todo tipo de função que estar entre o pedido da requisição e entre o pedido da resposta final para o frontend. Também podemos manipular e alterar as variáveis req e res.
+
+
+## Iniciando o projeto
+- yarn dev ou npm run dev
 
 
 # Dependências
